@@ -4,8 +4,8 @@ import os
 
 app = Flask(__name__)
 
-# Enable CORS for local development - to be changed in production
-CORS(app, origins="http://localhost:3000/portfolio-frontend/projects")
+# Enable CORS for local development & production
+CORS(app, origins=["https://gregwdumont.github.io", "http://localhost:3000"])
 
 # Define a sample data to serve via the API
 data = {
