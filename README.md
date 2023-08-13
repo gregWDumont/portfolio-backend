@@ -8,37 +8,47 @@ This repository serves as a playground for refining my coding expertise.
 
 ## API link
 
-The API is available [here]() deployed as live app using Heroku.
+The API is available [here](https://gregwdumont-portfolio-backend-72dc1ebe536c.herokuapp.com/) deployed as live app using Heroku.
 
 ## Frontend repository
 
 For the frontend counterpart of my portfolio, have a look at [frontend Github repository](https://github.com/gregWDumont/portfolio-frontend), where I showcase my coding skills and projects using React, Axios, and GitHub Pages.
 
-## Future Features
+## Current Features ✅
 
-1. **Host Platform:**  
+1. **Host Platform (Heroku):**
    Opt for Heroku for its quick and straightforward setup, allowing rapid deployment without diving into intricate details.
 
-2. **Environment Variables:**  
+2. **Flask Web Application:**
+   Develop a Flask-based web application to serve as the foundation for your portfolio backend.
+
+## Features Under Development 🚧
+
+1. **Gunicorn Integration:**  
+   Integrate Gunicorn as a production-ready WSGI HTTP server to serve your Python web application efficiently. Ensure optimal performance and reliability.
+
+2. **Database Setup:**  
+   Integrate a database (e.g., PostgreSQL, MySQL, MongoDB) to efficiently handle data storage and retrieval.
+
+## Future Features 🔭
+
+1. **Environment Variables:**  
    Secure sensitive information by storing API keys and credentials as environment variables, enhancing security and manageability.
 
-3. **Database Setup:**  
-   Integrate a database (e.g., PostgreSQL, MySQL, MongoDB) on the hosting platform to efficiently handle data storage and retrieval.
-
-4. **Continuous Integration and Deployment (CI/CD):**  
+2. **Continuous Integration and Deployment (CI/CD):**  
    Automate the build, testing, and deployment process using CI/CD tools for efficient and consistent updates.
 
-5. **Domain Configuration:**  
+3. **Domain Configuration:**  
    Configure a custom domain using ProtonMail to provide a personalized and professional web address.
 
-6. **Security and Authentication:**  
+4. **Security and Authentication:**  
    Implement robust security measures, including firewalls, SSL/TLS certificates, and authentication mechanisms.
 
-7. **Integrating Swagger UI:**  
+5. **Integrating Swagger UI:**  
    Enhance API documentation and testing by integrating Swagger UI, providing a user-friendly interface for developers.
 
-8. **Ubuntu with Nginx Server:**  
+6. **Ubuntu with Nginx Server:**  
    Utilize Ubuntu OS with Nginx as a high-performance web server and reverse proxy for efficient request handling.
 
-9. **Dockerization and Containerization:**  
+7. **Dockerization and Containerization:**  
    Containerize the backend using Docker to ensure consistent and isolated deployment across various environments.
