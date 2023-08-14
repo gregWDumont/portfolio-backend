@@ -1,6 +1,6 @@
 # My portfolio-backend
 
-Welcome to my portfolio-backend repository where I have built with Python and Flask.
+Welcome to my portfolio-backend repository which I have built with Python and Flask.
 
 ## About
 
@@ -8,7 +8,7 @@ This repository serves as a playground for refining my coding expertise.
 
 ## API link
 
-The API is available [here](https://gregwdumont-portfolio-backend-72dc1ebe536c.herokuapp.com/) deployed as live app using Heroku.
+The API is available [here](https://gregwdumont-portfolio-backend-72dc1ebe536c.herokuapp.com/) and deployed as a live app using Heroku.
 
 ## Frontend repository
 
@@ -20,12 +20,12 @@ For the frontend counterpart of my portfolio, have a look at [frontend Github re
    Opt for Heroku for its quick and straightforward setup, allowing rapid deployment without diving into intricate details.
 
 2. **Flask Web Application:**
-   Develop a Flask-based web application to serve as the foundation for your portfolio backend.
+   Develop a Flask-based web application to serve as the foundation for my portfolio backend.
 
 ## Features Under Development 🚧
 
 1. **Gunicorn Integration:**  
-   Integrate Gunicorn as a production-ready WSGI HTTP server to serve your Python web application efficiently. Ensure optimal performance and reliability.
+   Integrate Gunicorn as a production-ready WSGI HTTP server to serve my Python web application efficiently. Ensure optimal performance and reliability.
 
 2. **Database Setup:**  
    Integrate a database (e.g., PostgreSQL, MySQL, MongoDB) to efficiently handle data storage and retrieval.
