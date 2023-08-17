@@ -55,3 +55,6 @@ Replace hard-coded project information with dynamic calls to the GitHub API. Fet
 
 8. **Dockerization and Containerization:**  
    Containerize the backend using Docker to ensure consistent and isolated deployment across various environments.
+
+9. **Frontend Downdetector Integration:**  
+   Implement a custom Downdetector that periodically checks the accessibility of the frontend using Downdetector-like functionality. Notify the backend if the frontend experiences accessibility issues.
