@@ -44,11 +44,14 @@ For the frontend counterpart of my portfolio, have a look at [frontend Github re
 4. **Security and Authentication:**  
    Implement robust security measures, including firewalls, SSL/TLS certificates, and authentication mechanisms.
 
-5. **Integrating Swagger UI:**  
+5. **GitHub API Integration - Dynamic Project Showcase:**
+Replace hard-coded project information with dynamic calls to the GitHub API. Fetch repository details, commit history, and other relevant data to showcase your projects dynamically on your portfolio.
+
+6. **Integrating Swagger UI:**  
    Enhance API documentation and testing by integrating Swagger UI, providing a user-friendly interface for developers.
 
-6. **Ubuntu with Nginx Server:**  
+7. **Ubuntu with Nginx Server:**  
    Utilize Ubuntu OS with Nginx as a high-performance web server and reverse proxy for efficient request handling.
 
-7. **Dockerization and Containerization:**  
+8. **Dockerization and Containerization:**  
    Containerize the backend using Docker to ensure consistent and isolated deployment across various environments.
