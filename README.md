@@ -1,6 +1,6 @@
 # My portfolio-backend
 
-Welcome to my portfolio-backend repository which I have built with Python and Flask.
+Welcome to my portfolio-backend repository which I have built with Python, Flask, Heroku, and PostGres.
 
 ## About
 
@@ -28,7 +28,7 @@ For the frontend counterpart of my portfolio, have a look at [frontend Github re
    Integrate Gunicorn as a production-ready WSGI HTTP server to serve my Python web application efficiently. Ensure optimal performance and reliability.
 
 2. **Database Setup:**  
-   Integrate a database (e.g., PostgreSQL, MySQL, MongoDB) to efficiently handle data storage and retrieval.
+   Integrate a database (PostgreSQL) to efficiently handle data storage and retrieval.
 
 ## Future Features 🔭
 
