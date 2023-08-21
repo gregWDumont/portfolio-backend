@@ -12,6 +12,8 @@ CORS(app, origins=["https://gregwdumont.github.io", "http://localhost:3000"])
 
 db_url = os.environ.get("DATABASE_URL")
 
+print("Database URL:", db_url)
+
 try:
     conn = psycopg2.connect(db_url)
     cursor = conn.cursor()
