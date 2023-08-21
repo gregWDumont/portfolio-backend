@@ -22,39 +22,39 @@ For the frontend counterpart of my portfolio, have a look at [frontend Github re
 2. **Flask Web Application:**
    Develop a Flask-based web application to serve as the foundation for my portfolio backend.
 
-## Features Under Development 🚧
-
-1. **Gunicorn Integration:**  
+3. **Gunicorn Integration:**  
    Integrate Gunicorn as a production-ready WSGI HTTP server to serve my Python web application efficiently. Ensure optimal performance and reliability.
 
-2. **Database Setup:**  
-   Integrate a database (PostgreSQL) to efficiently handle data storage and retrieval.
+4. **Environment Variables:**  
+   Secure sensitive information by storing API keys and credentials as environment variables, enhancing security and manageability (facilitated by the use of Heroku).
+
+## Features Under Development 🚧
+
+1. **Database Setup:**  
+   Integrate a PostgreSQL database  via the [Heroku Postgres](https://www.heroku.com/postgres) service to handle data storage and retrieval.
 
 ## Future Features 🔭
 
-1. **Environment Variables:**  
-   Secure sensitive information by storing API keys and credentials as environment variables, enhancing security and manageability.
-
-2. **Continuous Integration and Deployment (CI/CD):**  
+1. **Continuous Integration and Deployment (CI/CD):**  
    Automate the build, testing, and deployment process using CI/CD tools for efficient and consistent updates.
 
-3. **Domain Configuration:**  
+2. **Domain Configuration:**  
    Configure a custom domain using ProtonMail to provide a personalized and professional web address.
 
-4. **Security and Authentication:**  
+3. **Security and Authentication:**  
    Implement robust security measures, including firewalls, SSL/TLS certificates, and authentication mechanisms.
 
-5. **GitHub API Integration - Dynamic Project Showcase:**
-Replace hard-coded project information with dynamic calls to the GitHub API. Fetch repository details, commit history, and other relevant data to showcase your projects dynamically on your portfolio.
+4. **GitHub API Integration - Dynamic Project Showcase:**
+   Replace hard-coded project information with dynamic calls to the GitHub API. Fetch repository details, commit history, and other relevant data to showcase your projects dynamically on your portfolio.
 
-6. **Integrating Swagger UI:**  
+5. **Integrating Swagger UI:**  
    Enhance API documentation and testing by integrating Swagger UI, providing a user-friendly interface for developers.
 
-7. **Ubuntu with Nginx Server:**  
+6. **Ubuntu with Nginx Server:**  
    Utilize Ubuntu OS with Nginx as a high-performance web server and reverse proxy for efficient request handling.
 
-8. **Dockerization and Containerization:**  
+7. **Dockerization and Containerization:**  
    Containerize the backend using Docker to ensure consistent and isolated deployment across various environments.
 
-9. **Frontend Downdetector Integration:**  
+8. **Frontend Downdetector Integration:**  
    Implement a custom Downdetector that periodically checks the accessibility of the frontend using Downdetector-like functionality. Notify the backend if the frontend experiences accessibility issues.
