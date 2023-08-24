@@ -32,7 +32,7 @@ def get_projects():
             "id": row[0],
             "title": row[1],
             "description": row[2],
-            "technologies": row[3].split(","),
+            "technologies": row[3],
             "link": row[4]
         })
 
