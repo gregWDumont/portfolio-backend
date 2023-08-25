@@ -1,1 +1,3 @@
 newrelic.ini
+venv/*
+.venv/*
