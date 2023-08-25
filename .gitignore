@@ -1,3 +1,4 @@
 newrelic.ini
-venv/*
-.venv/*
+*.pyc
+venv
+.venv
