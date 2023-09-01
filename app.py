@@ -2,6 +2,8 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 import os
 import psycopg2
+from apscheduler.schedulers.background import BackgroundScheduler
+from fetch_svg_github_activity import fetch_svg_github_activity
 
 app = Flask(__name__)
 
@@ -9,7 +11,6 @@ app = Flask(__name__)
 CORS(app, origins=["https://gregwdumont.github.io", "http://localhost:3000"])
 
 # Set up database connection
-
 db_url = os.environ.get("DATABASE_URL")
 
 print("Database URL:", db_url)
@@ -38,5 +39,9 @@ def get_projects():
 
     return jsonify(projects)
 
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=fetch_svg_github_activity, trigger="interval", seconds=3600)
+
 if __name__ == "__main__":
+    scheduler.start()
     app.run(debug=True)
