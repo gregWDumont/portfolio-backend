@@ -1,9 +1,14 @@
 from apscheduler.schedulers.background import BackgroundScheduler
+from pathlib import Path
 import requests
 import os
 import base64
 
 def fetch_svg_github_activity():
+    print("Attempting to fetch SVG...")
+    # Ensure the 'static' folder exists
+    Path("static").mkdir(exist_ok=True)
+
     token = os.environ.get('GITHUB_TOKEN')
     if not token:
         print("GitHub token not set")
@@ -15,6 +20,7 @@ def fetch_svg_github_activity():
     r = requests.get(svg_url, headers=headers)
     
     if r.status_code == 200:
+        print("Successfully fetched SVG.")
         # Create static folder if it doesn't exist
         Path("static").mkdir(exist_ok=True)
         
