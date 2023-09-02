@@ -3,7 +3,7 @@ from flask_cors import CORS
 import os
 import psycopg2
 from apscheduler.schedulers.background import BackgroundScheduler
-from fetch_svg_github_activity import fetch_svg_github_activity
+from fetch_svg_github_activity import fetch_svg_github_activity  # Import the modified function
 
 app = Flask(__name__)
 
@@ -39,8 +39,18 @@ def get_projects():
 
     return jsonify(projects)
 
+# Wrapper functions to fetch different versions of SVGs
+def fetch_dark_svg():
+    dark_url = 'https://raw.githubusercontent.com/gregWDumont/gregWDumont/main/github-contribution-grid-snake-dark.svg'
+    fetch_svg_github_activity(dark_url, 'github-contribution-grid-snake-dark.svg')
+
+def fetch_light_svg():
+    light_url = 'https://raw.githubusercontent.com/gregWDumont/gregWDumont/main/github-contribution-grid-snake.svg'
+    fetch_svg_github_activity(light_url, 'github-contribution-grid-snake-light.svg')
+
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=fetch_svg_github_activity, trigger="interval", seconds=3600)
+scheduler.add_job(func=fetch_dark_svg, trigger="interval", seconds=3600)
+scheduler.add_job(func=fetch_light_svg, trigger="interval", seconds=3600)
 
 if __name__ == "__main__":
     scheduler.start()
