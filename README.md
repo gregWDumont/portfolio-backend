@@ -33,6 +33,9 @@ For the frontend counterpart of my portfolio, have a look at [frontend Github re
 1. **Database Setup:**  
    Integrate a PostgreSQL database  via the [Heroku Postgres](https://www.heroku.com/postgres) service to handle data storage and retrieval.
 
+2. **GitHub API Integration - Dynamic Project Showcase:**  
+   Replace hard-coded project information with dynamic calls to the GitHub API. Fetch repository details, commit history, and other relevant data to showcase your projects dynamically on your portfolio.
+
 ## Future Features 🔭
 
 1. **Continuous Integration and Deployment (CI/CD):**  
@@ -44,17 +47,14 @@ For the frontend counterpart of my portfolio, have a look at [frontend Github re
 3. **Security and Authentication:**  
    Implement robust security measures, including firewalls, SSL/TLS certificates, and authentication mechanisms.
 
-4. **GitHub API Integration - Dynamic Project Showcase:**
-   Replace hard-coded project information with dynamic calls to the GitHub API. Fetch repository details, commit history, and other relevant data to showcase your projects dynamically on your portfolio.
-
-5. **Integrating Swagger UI:**  
+4. **Integrating Swagger UI:**  
    Enhance API documentation and testing by integrating Swagger UI, providing a user-friendly interface for developers.
 
-6. **Ubuntu with Nginx Server:**  
+5. **Ubuntu with Nginx Server:**  
    Utilize Ubuntu OS with Nginx as a high-performance web server and reverse proxy for efficient request handling.
 
-7. **Dockerization and Containerization:**  
+6. **Dockerization and Containerization:**  
    Containerize the backend using Docker to ensure consistent and isolated deployment across various environments.
 
-8. **Frontend Downdetector Integration:**  
+7. **Frontend Downdetector Integration:**  
    Implement a custom Downdetector that periodically checks the accessibility of the frontend using Downdetector-like functionality. Notify the backend if the frontend experiences accessibility issues.
