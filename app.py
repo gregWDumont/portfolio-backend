@@ -1,9 +1,21 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, Response
 from flask_cors import CORS
 import os
 import psycopg2
-from apscheduler.schedulers.background import BackgroundScheduler
-from fetch_svg_github_activity import fetch_svg_github_activity  # Import the modified function
+from psycopg2 import pool
+
+DATABASE_POOL_SIZE = 5
+database_pool = None
+
+def init_db():
+    global database_pool
+    database_pool = pool.SimpleConnectionPool(1, DATABASE_POOL_SIZE, os.environ.get("DATABASE_URL"))
+
+def get_conn():
+    return database_pool.getconn()
+
+def release_conn(conn):
+    database_pool.putconn(conn)
 
 app = Flask(__name__)
 
@@ -39,19 +51,24 @@ def get_projects():
 
     return jsonify(projects)
 
-# Wrapper functions to fetch different versions of SVGs
-def fetch_dark_svg():
-    dark_url = 'https://raw.githubusercontent.com/gregWDumont/gregWDumont/main/github-contribution-grid-snake-dark.svg'
-    fetch_svg_github_activity(dark_url, 'github-contribution-grid-snake-dark.svg')
-
-def fetch_light_svg():
-    light_url = 'https://raw.githubusercontent.com/gregWDumont/gregWDumont/main/github-contribution-grid-snake.svg'
-    fetch_svg_github_activity(light_url, 'github-contribution-grid-snake-light.svg')
-
-scheduler = BackgroundScheduler()
-scheduler.add_job(func=fetch_dark_svg, trigger="interval", seconds=3600)
-scheduler.add_job(func=fetch_light_svg, trigger="interval", seconds=3600)
+@app.route("/api/svgs/<svg_name>")
+def get_svgs(svg_name):
+    conn = get_conn()
+    cursor = conn.cursor()
+    try:
+        cursor.execute("SELECT data FROM svgs WHERE name=%s", (svg_name,))
+        svg_data = cursor.fetchone()
+        if svg_data:
+            return Response(svg_data[0], mimetype="image/svg+xml")
+        else:
+            return jsonify({'error': 'SVG not found'}), 404
+    except Exception as e:
+        print(f"Error fetching SVG: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
+    finally:
+        cursor.close()
+        release_conn(conn)
 
 if __name__ == "__main__":
-    scheduler.start()
+    init_db()
     app.run(debug=True)
