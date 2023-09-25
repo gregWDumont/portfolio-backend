@@ -1,55 +1,39 @@
 from flask import Flask, jsonify, Response
 from flask_cors import CORS
-import os
-import psycopg2
-from psycopg2 import pool
+from db_pool import init_db, get_conn, release_conn
 
-DATABASE_POOL_SIZE = 5
-database_pool = None
-
-def init_db():
-    global database_pool
-    database_pool = pool.SimpleConnectionPool(1, DATABASE_POOL_SIZE, os.environ.get("DATABASE_URL"))
-
-def get_conn():
-    return database_pool.getconn()
-
-def release_conn(conn):
-    database_pool.putconn(conn)
 
 app = Flask(__name__)
 
 # Enable CORS for local development & production
 CORS(app, origins=["https://gregwdumont.github.io", "http://localhost:3000"])
 
-# Set up database connection
-db_url = os.environ.get("DATABASE_URL")
-
-print("Database URL:", db_url)
-
-try:
-    conn = psycopg2.connect(db_url)
-    cursor = conn.cursor()
-    print("Database connection successful")
-except Exception as e:
-    print("Database connection failed:", e)
-
 @app.route("/api/projects")
 def get_projects():
-    cursor.execute("SELECT * FROM projects")
-    projects_from_db = cursor.fetchall()
+    conn = get_conn()
+    cursor = conn.cursor()
+    try:
+        cursor.execute("SELECT * FROM projects")
+        projects_from_db = cursor.fetchall()
 
-    projects = []
-    for row in projects_from_db:
-        projects.append({
-            "id": row[0],
-            "title": row[1],
-            "description": row[2],
-            "technologies": row[3],
-            "link": row[4]
-        })
+        projects = []
+        for row in projects_from_db:
+            projects.append({
+                "id": row[0],
+                "title": row[1],
+                "description": row[2],
+                "technologies": row[3],
+                "link": row[4]
+            })
 
-    return jsonify(projects)
+        return jsonify(projects)
+    
+    except Exception as e:
+        print(f"Error fetching projects: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
+    finally:
+        cursor.close()
+        release_conn(conn)
 
 @app.route("/api/svgs/<svg_name>")
 def get_svgs(svg_name):

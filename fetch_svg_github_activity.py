@@ -1,19 +1,6 @@
 import requests
 import os
-from psycopg2 import pool
-
-DATABASE_POOL_SIZE = 5
-database_pool = None
-
-def init_db():
-    global database_pool
-    database_pool = pool.SimpleConnectionPool(1, DATABASE_POOL_SIZE, os.environ.get("DATABASE_URL"))
-
-def get_conn():
-    return database_pool.getconn()
-
-def release_conn(conn):
-    database_pool.putconn(conn)
+from  db_pool import init_db, get_conn, release_conn
 
 def fetch_svg_github_activity(svg_url, file_name):
     print(f"Attempting to fetch SVG from {svg_url}...")
@@ -45,7 +32,7 @@ def fetch_svg_github_activity(svg_url, file_name):
         print(f"Failed to fetch SVG from {svg_url}: {r.status_code}, {r.text}")
 
 if __name__ == "__main__":
-    init_db()  # Initialize the database connection pool
+    init_db()
     dark_url = 'https://raw.githubusercontent.com/gregWDumont/gregWDumont/main/github-contribution-grid-snake-dark.svg'
     light_url = 'https://raw.githubusercontent.com/gregWDumont/gregWDumont/main/github-contribution-grid-snake.svg'
     
