@@ -10,6 +10,16 @@ CORS(app, origins=["https://gregwdumont.github.io", "http://localhost:3000"])
 
 @app.route("/api/projects")
 def get_projects():
+    """
+    Endpoint to retrieve a list of projects from the database.
+
+    This endpoint queries the 'projects' table in the database and returns all entries as JSON.
+    Each entry includes fields like id, title, description, technologies, and link.
+
+    Returns:
+        - JSON response containing a list of projects.
+        - In case of an error, returns a JSON with the 'error' key and HTTP status 500.
+    """
     conn = get_conn()
     cursor = conn.cursor()
     try:
@@ -37,6 +47,20 @@ def get_projects():
 
 @app.route("/api/svgs/<svg_name>")
 def get_svgs(svg_name):
+    """
+    Endpoint to retrieve a specific SVG image from the database.
+
+    This endpoint takes an SVG name as a parameter and queries the 'svgs' table in the database.
+    If found, it returns the SVG data with the appropriate mimetype.
+    
+    Args:
+        svg_name (str): The name of the SVG to retrieve.
+
+    Returns:
+        - Response containing SVG data with mimetype 'image/svg+xml'.
+        - In case the SVG is not found, returns a JSON with 'error' key and HTTP status 404.
+        - In case of an error, returns a JSON with the 'error' key and HTTP status 500.
+    """
     conn = get_conn()
     cursor = conn.cursor()
     try:
