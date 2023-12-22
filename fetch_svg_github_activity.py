@@ -1,8 +1,21 @@
 import requests
 import os
-from  db_pool import init_db, get_conn, release_conn
+from db_pool import init_db, get_conn, release_conn
 
 def fetch_svg_github_activity(svg_url, file_name):
+    """
+    Fetches an SVG file from a specified GitHub URL and stores it in a PostgreSQL database.
+
+    This function uses the requests library to make a GET request to the given SVG URL.
+    If successful, it inserts the SVG data into the 'svgs' table in the database,
+    updating the record if it already exists.
+
+    Args:
+        svg_url (str): URL of the SVG file on GitHub.
+        file_name (str): Name under which the SVG will be stored in the database.
+
+    The function requires a GitHub token set as an environment variable 'GITHUB_TOKEN' for authentication.
+    """
     print(f"Attempting to fetch SVG from {svg_url}...")
     
     token = os.environ.get('GITHUB_TOKEN')
